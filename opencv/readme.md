@@ -11,7 +11,7 @@
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.huawei.opencv_project"
+        applicationId "com.company.opencv_project"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -41,7 +41,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile project(':openCVLibrary341') //EDIT    
+    // ADD
+    compile project(':openCVLibrary341')     
 }
 ```
 ## build.gradle (Module:openCVLibrary341)
