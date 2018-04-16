@@ -6,6 +6,10 @@
 2.1 Decompress the downloaded file and note the path. i.e. C:\\OpenCV-android-sdk\
 
 2.2 
+
+## Import openCV Module
+Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sdk\java-->Ok-->Finish
+
 ## build.gradle (Module:app)
 ```json
 android {
@@ -23,6 +27,11 @@ android {
                 abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'mips', 'mips64' //EDIT
             }
         }
+    }
+    sourceSets {
+            main {
+                jniLibs.srcDirs = ['C:/Dev/OpenCV_Test/app/src/main/jniLibs']
+            }
     }
     buildTypes {
         release {
@@ -46,8 +55,27 @@ dependencies {
 }
 ```
 ## build.gradle (Module:openCVLibrary341)
+```json
+apply plugin: 'com.android.library'
 
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+```
+Make sure that compileSdkVersion, minSdkVersion and targetSdkVersion have same values in both build.gradle files.
 ## CMakeLists
 Make following changes to External Build Files --> CMakeLists
 
