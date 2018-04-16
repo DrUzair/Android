@@ -11,6 +11,10 @@
 Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sdk\java-->Ok-->Finish
 
 ## build.gradle (Module:app)
+- Important Elements: 
+-- sourceSets
+-- defaultConfig --> externalNativeBuild
+-- dependencies --> compile project(':openCVLibrary341')  
 ```json
 android {
     compileSdkVersion 26
@@ -49,8 +53,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    // ADD
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'    
     compile project(':openCVLibrary341')     
 }
 ```
