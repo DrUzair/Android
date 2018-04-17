@@ -1,11 +1,25 @@
-[Android Studio Project Config with OpenCV For Android](https://sriraghu.com/2017/03/11/opencv-in-android-an-introduction-part-1/)
+# Android Studio Project Config with OpenCV For Android
 
-1. Create New Android Project
+1. Create New Android Project (Include C++ Suppoprt) 
+    - Choose appropriate C++ standard i.e. C++ 11, C++ 14
+    - If behind proxy: 
+    -- update gradle.properties (Project properties)
+    --- systemProp.http.proxyUser
+    --- systemProp.https.proxyUser
+    --- systemProp.http.proxyPassword
+    --- systemProp.https.proxyPassword
+    --- systemProp.http.proxyPort
+    --- systemProp.https.proxyPort=8080
+    -- update builg.gradle (Module:app)
+    --- disable/comment 
+    ```gradle
+        //testImplementation 'junit:junit:4.12'
+        //androidTestImplementation 'com.android.support.test:runner:1.0.1'
+        //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    ```
 2. Download [Opencv SDK for Android](https://sourceforge.net/projects/opencvlibrary/files/opencv-android/)
 
-2.1 Decompress the downloaded file and note the path. i.e. C:\\OpenCV-android-sdk\
-
-2.2 
+- Decompress the downloaded file and note the path. i.e. C:\\OpenCV-android-sdk\
 
 ## Import openCV Module
 Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sdk\java-->Ok-->Finish
