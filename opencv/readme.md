@@ -2,16 +2,16 @@
 
 1. Create New Android Project (Include C++ Suppoprt) 
    
-   Choose appropriate C++ standard i.e. C++ 11, C++ 14
+-  Keep toolchain default
    
    If behind proxy: 
    1. update gradle.properties (Project properties)
-   ..* systemProp.http.proxyUser
-   ..* systemProp.https.proxyUser
-   ..* systemProp.http.proxyPassword
-   ..* systemProp.https.proxyPassword
-   ..* systemProp.http.proxyPort
-   ..* systemProp.https.proxyPort=8080
+   - systemProp.http.proxyUser
+   - systemProp.https.proxyUser
+   - systemProp.http.proxyPassword
+   - systemProp.https.proxyPassword
+   - systemProp.http.proxyPort
+   - systemProp.https.proxyPort=8080
    
    2. update builg.gradle (Module:app)
    disable/comment 
@@ -29,9 +29,9 @@
 ## Import openCV Module
 Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sdk\java-->Ok-->Finish
 
-- Create jniLib directory in the project .\OpenCV_Android\app\src\main
+- Create jniLib directory in the project C:\\OpenCV_Android\app\src\main
 
-- Copy All folder from C:\OpenCV-android-sdk\sdk\native\libs to .\OpenCV_Android\app\src\main
+- Copy All folder from C:\\OpenCV-android-sdk\sdk\native\libs to C:\\OpenCV_Android\app\src\main
 
 - Resync the project
 ## build.gradle (Module:app)
@@ -78,7 +78,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'    
-    compile project(':openCVLibrary341')     
+    **compile project(':openCVLibrary341')**     
 }
 ```
 ## build.gradle (Module:openCVLibrary341)
@@ -106,12 +106,9 @@ Make sure that compileSdkVersion, minSdkVersion and targetSdkVersion have same v
 ## CMakeLists
 Make following changes to External Build Files --> CMakeLists
 
-- set(pathToProject C:/Dev/OpenCV_Test)
+- set(pathToProject C:/OpenCV_Android)
 - set(pathToOpenCV C:/OpenCV-android-sdk/sdk/native)
-
 - include_directories(${pathToOpenCV}/jni/include)
-
 - add_library( lib_opencv SHARED IMPORTED)
 - set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${pathToProject}/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
-
 - target_link_libraries( native-lib lib_opencv ${log-lib} )
