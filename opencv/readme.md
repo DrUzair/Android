@@ -29,11 +29,12 @@
 ## Import openCV Module
 Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sdk\java-->Ok-->Finish
 
-- Create jniLib directory in the project C:\\OpenCV_Android\app\src\main
+- Create jniLib directory in the project C:\\OpenCV_Android\app\src\main\jniLib
 
-- Copy All folder from C:\\OpenCV-android-sdk\sdk\native\libs to C:\\OpenCV_Android\app\src\main
+- Copy All folder from C:\\OpenCV-android-sdk\sdk\native\libs to C:\\OpenCV_Android\app\src\main\jniLib
 
 - Resync the project
+
 ## build.gradle (Module:app)
 - Important Elements: 
 -- sourceSets
@@ -78,7 +79,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'    
-    **compile project(':openCVLibrary341')**     
+    compile project(':openCVLibrary341')     
 }
 ```
 ## build.gradle (Module:openCVLibrary341)
@@ -105,10 +106,15 @@ android {
 Make sure that compileSdkVersion, minSdkVersion and targetSdkVersion have same values in both build.gradle files.
 ## CMakeLists
 Make following changes to External Build Files --> CMakeLists
+```cmake
+set(pathToProject C:/OpenCV_Android)
+set(pathToOpenCV C:/OpenCV-android-sdk/sdk/native)
+cmake_minimum_required(VERSION 3.4.1)
 
-- set(pathToProject C:/OpenCV_Android)
-- set(pathToOpenCV C:/OpenCV-android-sdk/sdk/native)
-- include_directories(${pathToOpenCV}/jni/include)
-- add_library( lib_opencv SHARED IMPORTED)
-- set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${pathToProject}/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
-- target_link_libraries( native-lib lib_opencv ${log-lib} )
+add_library( native-lib SHARED src/main/cpp/native-lib.cpp )
+include_directories(${pathToOpenCV}/jni/include)
+add_library( lib_opencv SHARED IMPORTED)
+set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${pathToProject}/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
+find_library(log-lib log)
+target_link_libraries( native-lib lib_opencv ${log-lib} )
+```
