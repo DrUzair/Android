@@ -3,9 +3,7 @@
 1. Create New Android Project (Include C++ Suppoprt) 
    
 -  Keep toolchain default
-   
-   If behind proxy: 
-   1. update gradle.properties (Project properties)
+   If behind proxy: update gradle.properties (Project properties)
    - systemProp.http.proxyUser
    - systemProp.https.proxyUser
    - systemProp.http.proxyPassword
