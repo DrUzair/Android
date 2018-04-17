@@ -29,11 +29,11 @@
 ## Import openCV Module
 Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sdk\java-->Ok-->Finish
 
-- Create jniLib directory in the project .\OpenCV_Android\app\jniLib 
+- Create jniLib directory in the project .\OpenCV_Android\app\src\main
 
--- Copy All folder from C:\OpenCV-android-sdk\sdk\native\libs to .\OpenCV_Android\app\jniLib 
+- Copy All folder from C:\OpenCV-android-sdk\sdk\native\libs to .\OpenCV_Android\app\src\main
 
--- Resync the project
+- Resync the project
 ## build.gradle (Module:app)
 - Important Elements: 
 -- sourceSets
