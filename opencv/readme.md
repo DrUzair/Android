@@ -12,6 +12,7 @@
    ..* systemProp.https.proxyPassword
    ..* systemProp.http.proxyPort
    ..* systemProp.https.proxyPort=8080
+   
    2. update builg.gradle (Module:app)
    disable/comment 
     ```gradle
@@ -48,8 +49,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                cppFlags "-std=c++11 -frtti -fexceptions" //EDIT
-                abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'mips', 'mips64' //EDIT
+                cppFlags "-std=c++11 -frtti -fexceptions" 
+                abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'mips', 'mips64' 
             }
         }
     }
