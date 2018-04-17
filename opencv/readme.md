@@ -35,9 +35,9 @@ Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sd
 
 ## build.gradle (Module:app)
 - Important Elements: 
-   -- sourceSets
-   -- defaultConfig --> externalNativeBuild
-   -- dependencies --> compile project(':openCVLibrary341')  
+  - sourceSets
+  - defaultConfig --> externalNativeBuild
+  - dependencies --> compile project(':openCVLibrary341')  
 ```json
 android {
     compileSdkVersion 26
