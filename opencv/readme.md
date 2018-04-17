@@ -5,14 +5,14 @@
    Choose appropriate C++ standard i.e. C++ 11, C++ 14
    
    If behind proxy: 
-   1.* update gradle.properties (Project properties)
-   systemProp.http.proxyUser
-   systemProp.https.proxyUser
-   systemProp.http.proxyPassword
-   systemProp.https.proxyPassword
-   systemProp.http.proxyPort
-   systemProp.https.proxyPort=8080
-   2.* update builg.gradle (Module:app)
+   1. update gradle.properties (Project properties)
+   ..* systemProp.http.proxyUser
+   ..* systemProp.https.proxyUser
+   ..* systemProp.http.proxyPassword
+   ..* systemProp.https.proxyPassword
+   ..* systemProp.http.proxyPort
+   ..* systemProp.https.proxyPort=8080
+   2. update builg.gradle (Module:app)
    disable/comment 
     ```gradle
         //testImplementation 'junit:junit:4.12'
