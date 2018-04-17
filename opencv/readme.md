@@ -1,17 +1,17 @@
 # Android Studio Project Config with OpenCV For Android
 
 1. Create New Android Project (Include C++ Suppoprt) 
-    - Choose appropriate C++ standard i.e. C++ 11, C++ 14
-    - If behind proxy: 
-    -- update gradle.properties (Project properties)
-    --- systemProp.http.proxyUser
-    --- systemProp.https.proxyUser
-    --- systemProp.http.proxyPassword
-    --- systemProp.https.proxyPassword
-    --- systemProp.http.proxyPort
-    --- systemProp.https.proxyPort=8080
-    -- update builg.gradle (Module:app)
-    --- disable/comment 
+    . Choose appropriate C++ standard i.e. C++ 11, C++ 14
+    . If behind proxy: 
+    .. update gradle.properties (Project properties)
+    ... systemProp.http.proxyUser
+    ... systemProp.https.proxyUser
+    ... systemProp.http.proxyPassword
+    ... systemProp.https.proxyPassword
+    ... systemProp.http.proxyPort
+    ... systemProp.https.proxyPort=8080
+    .. update builg.gradle (Module:app)
+    .... disable/comment 
     ```gradle
         //testImplementation 'junit:junit:4.12'
         //androidTestImplementation 'com.android.support.test:runner:1.0.1'
