@@ -37,9 +37,9 @@ Android Studio: File-->New-->Import Module-->Browse to C:\\OpenCV-android-sdk\sd
 
 ## build.gradle (Module:app)
 - Important Elements: 
--- sourceSets
--- defaultConfig --> externalNativeBuild
--- dependencies --> compile project(':openCVLibrary341')  
+ - sourceSets
+ - defaultConfig --> externalNativeBuild
+ - dependencies --> compile project(':openCVLibrary341')  
 ```json
 android {
     compileSdkVersion 26
@@ -59,7 +59,7 @@ android {
     }
     sourceSets {
             main {
-                jniLibs.srcDirs = ['C:/Dev/OpenCV_Test/app/src/main/jniLibs']
+                jniLibs.srcDirs = ['C:/OpenCV_Android/app/src/main/jniLibs']
             }
     }
     buildTypes {
@@ -112,9 +112,12 @@ set(pathToOpenCV C:/OpenCV-android-sdk/sdk/native)
 cmake_minimum_required(VERSION 3.4.1)
 
 add_library( native-lib SHARED src/main/cpp/native-lib.cpp )
+
 include_directories(${pathToOpenCV}/jni/include)
 add_library( lib_opencv SHARED IMPORTED)
 set_target_properties(lib_opencv PROPERTIES IMPORTED_LOCATION ${pathToProject}/app/src/main/jniLibs/${ANDROID_ABI}/libopencv_java3.so)
+
 find_library(log-lib log)
+
 target_link_libraries( native-lib lib_opencv ${log-lib} )
 ```
